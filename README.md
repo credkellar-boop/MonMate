@@ -4,7 +4,7 @@
 
 ### 🚀 Features
 *   **Chess Engine:** Play offline or online with built-in move validation.
-*   **Fridge Checker:** Smart inventory management with expiry alerts—optimized for Smart Refrigerators.
+
 *   **Universal Support:** One codebase for Phones, Tablets, Android TV, and Desktop.
 *   **Offline First:** Full functionality without an internet connection using local NoSQL storage.
 
