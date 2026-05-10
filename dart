@@ -14,3 +14,20 @@ class MonadService {
     // This will trigger the user's wallet to confirm the $MON transaction
   }
 }
+Widget _buildBettingOverlay() {
+  return Card(
+    child: Column(
+      children: [
+        Text("Wager $MON"),
+        TextField(
+          decoration: InputDecoration(labelText: "Amount"),
+          keyboardType: TextInputType.number,
+        ),
+        ElevatedButton(
+          onPressed: () => monService.placeBet(matchId, 10.0), 
+          child: Text("Confirm & Play"),
+        ),
+      ],
+    ),
+  );
+}
