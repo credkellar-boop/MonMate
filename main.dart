@@ -18,3 +18,6 @@ void handleDeepLink(Uri uri) {
     }
   }
 }
+home: const PulsingBackground(
+  child: ChessPage(),
+),
