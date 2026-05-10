@@ -1,0 +1,4 @@
+dependencies:
+  web3dart: ^2.7.0
+  http: ^1.1.0
+  walletconnect_dart: ^0.0.11 # For connecting MetaMask/Rabby
