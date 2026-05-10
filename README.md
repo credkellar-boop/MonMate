@@ -1,17 +1,9 @@
-# ♟️ MonMate 🧊
+# ♟️ MonMate
 
-**MonMate** is an all-in-one universal application designed for seamless monitoring and entertainment across all your devices.
+**MonMate** is a high-performance, cross-platform Chess application designed to run seamlessly on everything from mobile phones to smart displays and TVs.
 
 ### 🚀 Features
-*   **Chess Engine:** Play offline or online with built-in move validation.
-
-*   **Universal Support:** One codebase for Phones, Tablets, Android TV, and Desktop.
-*   **Offline First:** Full functionality without an internet connection using local NoSQL storage.
-
-### 🛠️ Quick Start
-1. Clone the repo: `git clone https://github.com/your-username/monmate.git`
-2. Install dependencies: `flutter pub get`
-3. Run the app: `flutter run`
-
----
-*Built with Flutter, Isar, and Chess Logic.*
+* **Universal Compatibility:** Optimized UI for Phones, Tablets, Desktop, and Android-based Smart Displays/TVs.
+* **Offline Play:** Full chess engine functionality without requiring an internet connection.
+* **Move Validation:** Built-in logic for legal moves, checkmate detection, and PGN support.
+* **Performance First:** Powered by Flutter and local NoSQL storage for zero-lag interactions.
