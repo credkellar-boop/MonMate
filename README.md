@@ -7,3 +7,12 @@
 * **Offline Play:** Full chess engine functionality without requiring an internet connection.
 * **Move Validation:** Built-in logic for legal moves, checkmate detection, and PGN support.
 * **Performance First:** Powered by Flutter and local NoSQL storage for zero-lag interactions.
+/lib
+├── core/
+│   └── network/         # Wallet, Presence, and LiveKit setup
+├── features/
+│   ├── chess/           # Game board & Move logic
+│   ├── messenger/       # Text chat UI & Logic
+│   ├── video_call/      # WebRTC / LiveKit implementation
+│   └── wallet/          # $MON Betting & History
+└── main.dart
