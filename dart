@@ -31,3 +31,28 @@ Widget _buildBettingOverlay() {
     ),
   );
 }
+// lib/features/chess/presentation/widgets/wager_bar.dart
+class WagerBar extends StatelessWidget {
+  final double amount;
+  final bool isConnected;
+
+  const WagerBar({required this.amount, required this.isConnected});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      color: Colors.deepPurple.withOpacity(0.1),
+      child: Row(
+        children: [
+          Image.asset('assets/icons/mon_logo.png', width: 24),
+          SizedBox(width: 8),
+          Text(isConnected ? "$amount MON at stake" : "Connect to Wager"),
+          Spacer(),
+          if (!isConnected) 
+            ElevatedButton(onPressed: () => connect(), child: Text("Connect"))
+        ],
+      ),
+    );
+  }
+}
