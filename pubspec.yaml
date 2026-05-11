@@ -2,7 +2,6 @@ name: monmate
 description: High-Frequency Web3 Chess on Monad.
 version: 1.0.0+1
 
-# THIS IS THE MISSING PART CAUSING THE RED X
 environment:
   sdk: '>=3.1.0 <4.0.0'
 
@@ -13,9 +12,11 @@ dependencies:
   http: ^1.2.0
   flutter_secure_storage: ^9.0.0
   animate_do: ^3.3.4
-  # Added for your wallet_service.dart imports
-  walletconnect_flutter_v2: ^2.4.4 
+  # Fixed version to resolve Exit Code 65 conflict
+  walletconnect_flutter_v2: ^2.4.1 
   permission_handler: ^11.3.1
+  shared_preferences: ^2.2.2
+  supabase_flutter: ^2.4.0
 
 dev_dependencies:
   flutter_test:
