@@ -1,11 +1,23 @@
+name: monmate
+description: High-Frequency Web3 Chess on Monad.
+version: 1.0.0+1
+
+# THIS IS THE MISSING PART CAUSING THE RED X
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
-  # The essential Web3 library for EVM (Monad)
-  web3dart: ^2.7.3 
-  # For making RPC calls to the Monad Testnet
+  web3dart: ^2.7.3
   http: ^1.2.0
-  # For local secure storage of private keys/wallets
   flutter_secure_storage: ^9.0.0
-  # For your "Pulsing UI" and "Heartbeat" aesthetic (as seen in your README)
   animate_do: ^3.3.4
+  # Added for your wallet_service.dart imports
+  walletconnect_flutter_v2: ^2.4.4 
+  permission_handler: ^11.3.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.1
