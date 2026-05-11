@@ -1,11 +1,11 @@
 dependencies:
-  web3dart: ^2.7.0
-  http: ^1.1.0
-  walletconnect_dart: ^0.0.11 # For connecting MetaMask/Rabby
-dependencies:
-  # Real-time Video & Audio
-  livekit_client: ^2.0.0 
-  # Messaging, Presence, and Online Status
-  supabase_flutter: ^2.0.0
-  # Permissions (Camera/Mic)
-  permission_handler: ^11.0.0
+  flutter:
+    sdk: flutter
+  # The essential Web3 library for EVM (Monad)
+  web3dart: ^2.7.3 
+  # For making RPC calls to the Monad Testnet
+  http: ^1.2.0
+  # For local secure storage of private keys/wallets
+  flutter_secure_storage: ^9.0.0
+  # For your "Pulsing UI" and "Heartbeat" aesthetic (as seen in your README)
+  animate_do: ^3.3.4
