@@ -12,7 +12,7 @@ dependencies:
   http: ^1.2.0
   flutter_secure_storage: ^9.0.0
   animate_do: ^3.3.4
-  # Fixed version to resolve Exit Code 65 conflict
+  # Use 2.4.1 to resolve the dependency conflict
   walletconnect_flutter_v2: ^2.4.1 
   permission_handler: ^11.3.1
   shared_preferences: ^2.2.2
