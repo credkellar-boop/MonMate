@@ -1,3 +1,5 @@
+import 'package:supabase_flutter/supabase_flutter.dart';
+
 class PresenceService {
   final channel = Supabase.instance.client.channel('lobby');
 
@@ -13,9 +15,8 @@ class PresenceService {
     });
   }
 
-  // Listen for other players
-  Stream<List<PresenceState>> get onlinePlayers => 
-      channel.on(RealtimeListenTypes.presence, (payload, [ref]) {
+  Stream<List<PresenceState>> get onlinePlayers =>
+      channel.on(RealtimeListenTypes.presence, (payload, {ref}) {
         // Returns list of everyone currently connected
       }).asStream();
 }
