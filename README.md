@@ -2,7 +2,6 @@
 > High-Frequency Web3 Chess with Real-Time Social Betting on Monad.
 
 [![Monad Network](https://img.shields.io/badge/Network-Monad_Mainnet-6B4DFF?style=for-the-badge&logo=monero&logoColor=white)](https://monad.xyz)
-[![Flutter](https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white)](https://flutter.dev)
 [![UI](https://img.shields.io/badge/UI-Animated_Monad_Pulse-6B4DFF?style=for-the-badge)](#)
 [![Web3](https://img.shields.io/badge/Web3-EVM_Compatible-3C3C3D?style=for-the-badge&logo=ethereum&logoColor=white)](#)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
