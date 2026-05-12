@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'features/chess/presentation/pages/chess_page.dart';
+// TODO: Import your actual pages here
+// import 'package:monmate/features/chess/presentation/pages/chess_page.dart';
 
-// 1. Global key for navigation via deep links
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 
 void main() {
@@ -11,7 +11,6 @@ void main() {
 class MonMateApp extends StatelessWidget {
   const MonMateApp({super.key});
 
-  // 2. Deep link handler
   void handleDeepLink(Uri uri) {
     if (uri.pathSegments.contains('join')) {
       final String? matchId = uri.queryParameters['matchId'];
@@ -34,13 +33,12 @@ class MonMateApp extends StatelessWidget {
     return MaterialApp(
       title: 'MonMate',
       navigatorKey: navigatorKey,
-      theme: ThemeData.dark(), // Matches your UI aesthetic
-      home: const ChessPage(), 
-      // If you have a PulsingBackground widget, wrap ChessPage with it:
-      // home: PulsingBackground(child: const ChessPage()),
+      theme: ThemeData.dark(),
+      home: const Scaffold(body: Center(child: Text('Chess Page'))),
       routes: {
-        // Ensure you define this route in your features folder
-        // '/confirm-wager': (context) => const ConfirmWagerPage(),
+        '/confirm-wager': (context) => const Scaffold(
+              body: Center(child: Text('Confirm Wager')),
+            ),
       },
     );
   }
