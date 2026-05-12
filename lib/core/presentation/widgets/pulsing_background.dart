@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:math' as math;
 
 class PulsingBackground extends StatefulWidget {
   final Widget child;
@@ -9,7 +8,8 @@ class PulsingBackground extends StatefulWidget {
   State<PulsingBackground> createState() => _PulsingBackgroundState();
 }
 
-class _PulsingBackgroundState extends State<PulsingBackground> with SingleTickerProviderStateMixin {
+class _PulsingBackgroundState extends State<PulsingBackground>
+    with SingleTickerProviderStateMixin {
   late AnimationController _controller;
 
   @override
@@ -17,7 +17,7 @@ class _PulsingBackgroundState extends State<PulsingBackground> with SingleTicker
     super.initState();
     _controller = AnimationController(
       vsync: this,
-      duration: const Duration(seconds: 4), // Matches the slow pulse in your video
+      duration: const Duration(seconds: 4),
     )..repeat(reverse: true);
   }
 
@@ -42,7 +42,7 @@ class _PulsingBackgroundState extends State<PulsingBackground> with SingleTicker
               );
             },
           ),
-          widget.child, // Your Chess Board or UI goes here
+          widget.child,
         ],
       ),
     );
@@ -59,16 +59,18 @@ class PurplePulsePainter extends CustomPainter {
     const int barCount = 40;
     final double spacing = size.width / barCount;
 
-    // Draw the vertical purple bars
     for (int i = 0; i < barCount; i++) {
-      double opacity = 0.2 + (0.4 * pulseValue); // Animating brightness
+      double opacity = 0.2 + (0.4 * pulseValue);
       paint.color = const Color(0xFF6B4DFF).withOpacity(opacity);
-      
+
       double x = i * spacing;
-      canvas.drawLine(Offset(x, 0), Offset(x, size.height), paint);
+      canvas.drawLine(
+        Offset(x, 0),
+        Offset(x, size.height),
+        paint,
+      );
     }
 
-    // Add the central vignette (the dark circle in your video)
     final Rect rect = Offset.zero & size;
     final Gradient gradient = RadialGradient(
       colors: [
@@ -77,11 +79,11 @@ class PurplePulsePainter extends CustomPainter {
         Colors.black,
       ],
       stops: const [0.0, 0.7, 1.0],
-      radius: 1.2 - (0.2 * pulseValue), // The vignette "breathes"
+      radius: 1.2 * pulseValue,
     );
 
-    final Paint vignettePaint = Paint()..shader = gradient.createShader(rect);
-    canvas.drawRect(rect, vignettePaint);
+    final paintVignette = Paint()..shader = gradient.createShader(rect);
+    canvas.drawRect(rect, paintVignette);
   }
 
   @override
