@@ -22,3 +22,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.1
+dependencies:
+  flutter:
+    sdk: flutter
+  web3dart: ^2.7.3        # Blockchain interaction
+  isar: ^3.1.0            # Offline DB
+  isar_flutter_libs: ^3.1.0
+  livekit_client: ^2.1.5  # Social/Real-time (from your table)
+  supabase_flutter: ^2.0.0 # Presence/Social
