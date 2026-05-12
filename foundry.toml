@@ -1,0 +1,11 @@
+[profile.default]
+src = 'contracts'
+out = 'out'
+libs = ['lib']
+
+# Monad Devnet/Testnet Configuration (Adjust as needed)
+[rpc_endpoints]
+monad = "https://rpc-devnet.monad.xyz"
+
+[etherscan]
+monad = { key = "${MONAD_EXPLORER_API_KEY}" }
