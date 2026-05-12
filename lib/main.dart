@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-// TODO: Import your actual pages here
-// import 'package:monmate/features/chess/presentation/pages/chess_page.dart';
-
-final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
+import 'package:web3dart/web3dart.dart';
 
 void main() {
   runApp(const MonMateApp());
@@ -11,35 +8,22 @@ void main() {
 class MonMateApp extends StatelessWidget {
   const MonMateApp({super.key});
 
-  void handleDeepLink(Uri uri) {
-    if (uri.pathSegments.contains('join')) {
-      final String? matchId = uri.queryParameters['matchId'];
-      final String? wager = uri.queryParameters['wager'];
-
-      if (matchId != null) {
-        navigatorKey.currentState?.pushNamed(
-          '/confirm-wager',
-          arguments: {
-            'matchId': matchId,
-            'wager': double.tryParse(wager ?? '0') ?? 0.0,
-          },
-        );
-      }
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'MonMate',
-      navigatorKey: navigatorKey,
-      theme: ThemeData.dark(),
-      home: const Scaffold(body: Center(child: Text('Chess Page'))),
-      routes: {
-        '/confirm-wager': (context) => const Scaffold(
-              body: Center(child: Text('Confirm Wager')),
-            ),
-      },
+      theme: ThemeData.dark(), // Matches your "Pulsing UI" aesthetic
+      home: const GameScreen(),
+    );
+  }
+}
+
+class GameScreen extends StatelessWidget {
+  const GameScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(child: Text('MonMate: High-Frequency Web3 Chess')),
     );
   }
 }
