@@ -10,7 +10,6 @@
 ![Platform: Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 ![Platform: iOS](https://img.shields.io/badge/Platform-iOS-000000?style=for-the-badge&logo=ios&logoColor=white)
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
-
 [![Dart CI](https://img.shields.io/github/actions/workflow/status/<USERNAME>/monmate/dart_ci.yml?style=for-the-badge&label=Dart%20CI&logo=github)](https://github.com/<USERNAME>/monmate/actions/workflows/dart_ci.yml)
 
 ## 📖 Overview
