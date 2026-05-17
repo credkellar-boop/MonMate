@@ -7,9 +7,7 @@
   <a href="https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml">
     <img src="https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml/badge.svg" alt="Forge Tests" />
   </a>
-</p>
-
-<p align="left">
+</p> <p align="left">
   <img src="https://img.shields.io/badge/Flutter-%2302569B.svg?style=flat&logo=Flutter&logoColor=white" alt="Flutter" />
   <img src="https://img.shields.io/badge/Dart-%230175C2.svg?style=flat&logo=Dart&logoColor=white" alt="Dart" />
   <img src="https://img.shields.io/badge/Solidity-%23363636.svg?style=flat&logo=solidity&logoColor=white" alt="Solidity" />
