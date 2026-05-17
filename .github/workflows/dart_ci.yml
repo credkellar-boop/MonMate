@@ -1,10 +1,10 @@
-name: MonMate Dart CI
+name: Dart CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [ "main", "master" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main", "master" ]
 
 jobs:
   build:
@@ -14,15 +14,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Dart
-        uses: dart-lang/setup-dart@v1
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
         with:
-          sdk: stable
+          channel: 'stable' # or 'beta', 'master' depending on your needs
+          cache: true
 
       - name: Install dependencies
-        run: dart pub get
+        run: flutter pub get
 
-      - name: Analyze code
-        run: dart analyze
+      - name: Verify formatting
+        run: dart format --output=none --set-exit-if-changed .
 
-      - name: Run
+      - name: Analyze project source
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
