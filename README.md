@@ -1,5 +1,7 @@
 # MonMate ♟️
 
+[![Dart CI](https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml/badge.svg)](https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml)
+[![Forge Tests](https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml/badge.svg)](https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml)
 ![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
 ![Dart](https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=dart&logoColor=white)
 ![Solidity](https://img.shields.io/badge/Solidity-%23363636.svg?style=for-the-badge&logo=solidity&logoColor=white)
