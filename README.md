@@ -12,7 +12,6 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)
 
 [![Dart CI](https://img.shields.io/github/actions/workflow/status/<USERNAME>/monmate/dart_ci.yml?style=for-the-badge&label=Dart%20CI&logo=github)](https://github.com/<USERNAME>/monmate/actions/workflows/dart_ci.yml)
-[![Forge Tests CI](https://img.shields.io/github/actions/workflow/status/<USERNAME>/monmate/test.yml?style=for-the-badge&label=Forge%20Tests&logo=github)](https://github.com/<USERNAME>/monmate/actions/workflows/test.yml)
 
 ## 📖 Overview
 
