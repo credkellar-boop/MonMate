@@ -1,10 +1,29 @@
-uses: subosito/flutter-action@v2
-with:
-  channel: stable
+name: monmate
+description: "A High-Frequency Web3 Chess application built natively with Flutter and powered by the Monad network."
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-# Ensure your standard Flutter configuration (assets, material design) remains below if present:
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0' # Adjust this to match your installed Flutter SDK version
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Web3, Database, and Real-time packages based on your project overview:
+  cupertino_icons: ^1.0.6
+  supabase_flutter: ^2.6.0
+  livekit_client: ^2.3.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
 flutter:
   uses-material-design: true
-flutter pub get
-flutter analyze
-flutter test
+
+  # If you add assets or fonts later, they go here:
+  # assets:
+  #   - assets/
