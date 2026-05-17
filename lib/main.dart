@@ -1,107 +1,134 @@
 import 'package:flutter/material.dart';
-import 'package:livekit_client/livekit_client.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:livekit_client/livekit_client.dart';
+
+// Fixed import paths with correct package name
+import 'package:monmate/features/chess/presentation/pages/chess_page.dart';
+import 'package:monmate/features/wallet/presentation/pages/history_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  // Initialize Supabase (Replace with your actual URL and Anon Key)
+  
+  // Initialize Supabase
   await Supabase.initialize(
     url: 'YOUR_SUPABASE_URL',
     anonKey: 'YOUR_SUPABASE_ANON_KEY',
   );
 
-  runApp(const MonMateApp());
+  runApp(const MyApp());
 }
 
-class MonMateApp extends StatelessWidget {
-  const MonMateApp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData.dark().copyWith(
-        primaryColor: Colors.deepPurple,
-        scaffoldBackgroundColor: const Color(0xFF0A0A0A), // Dark "Pulsing" theme
-      ),
-      home: const SocialChessRoom(),
+      debugShowCheckedModeBanner: false,
+      title: 'MonMate',
+      theme: ThemeData.dark(),
+      home: const MainNavigationScreen(),
     );
   }
 }
 
-class SocialChessRoom extends StatefulWidget {
-  const SocialChessRoom({super.key});
+class MainNavigationScreen extends StatefulWidget {
+  const MainNavigationScreen({super.key});
 
   @override
-  State<SocialChessRoom> createState() => _SocialChessRoomState();
+  State<MainNavigationScreen> createState() => _MainNavigationScreenState();
 }
 
-class _SocialChessRoomState extends State<SocialChessRoom> {
-  Room? _room;
-  final List<String> _messages = [];
+class _MainNavigationScreenState extends State<MainNavigationScreen> {
+  int _selectedIndex = 0;
+  Room? _liveKitRoom;
 
   @override
   void initState() {
     super.initState();
-    _setupPresence();
+    _initLiveKit();
+    _setupSupabasePresence();
   }
 
-  // --- SOCIAL LAYER: Supabase Presence ---
-  void _setupPresence() {
-    final channel = Supabase.instance.client.channel('lobby');
-    
+  Future<void> _initLiveKit() async {
+    try {
+      _liveKitRoom = Room();
+      print("LiveKit room initialized successfully");
+    } catch (e) {
+      print("Failed to initialize LiveKit: $e");
+    }
+  }
+
+  void _setupSupabasePresence() {
+    final client = Supabase.instance.client;
+    final channel = client.channel('room-1');
+
     channel.onPresenceSync((payload) {
-      debugPrint('Players online: ${channel.presenceState()}');
-    }).subscribe((status, error) async {
-      if (status == RealtimeSubscribeStatus.subscribed) {
-        await channel.track({'status': 'Online', 'playing': false});
+      print('Synced presence state: ${channel.presenceState()}');
+    }).onPresenceJoin((payload) {
+      print('User joined: ${payload.newPresences}');
+    }).onPresenceLeave((payload) {
+      print('User left: ${payload.leftPresences}');
+    }).subscribe((status, [error]) async {
+      if (status == RealtimeChannelStatus.subscribed) {
+        await channel.track({'user_id': client.auth.currentUser?.id ?? 'anonymous'});
       }
     });
   }
 
-  // --- REAL-TIME LAYER: LiveKit Connection ---
-  Future<void> _connectToLiveHub() async {
-    final room = Room();
-    try {
-      await room.connect('wss://your-livekit-url', 'your-token');
-      setState(() {
-        _room = room;
-      });
-      // Enable mic for "Trash Talk" feature
-      await room.localParticipant?.setMicrophoneEnabled(true);
-    } catch (e) {
-      debugPrint('LiveKit Connection Failed: $e');
-    }
+  @override
+  void dispose() {
+    _liveKitRoom?.disconnect();
+    super.dispose();
   }
+
+  // Screens to navigate between
+  final List<Widget> _screens = [
+    const ChessPage(),
+    const HistoryPage(),
+  ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('MonMate Social Hub')),
-      body: Column(
+      body: Stack(
         children: [
-          // Chess Board Area (Placeholder)
-          const Expanded(
-            flex: 3,
-            child: Center(child: Icon(Icons.grid_4x4, size: 100, color: Colors.purpleAccent)),
-          ),
-          
-          // Social/Real-time Controls
-          Container(
-            padding: const EdgeInsets.all(16),
-            decoration: const BoxDecoration(
-              color: Colors.black45,
-              borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
-            ),
-            child: Column(
-              children: [
-                Text(_room != null ? "Voice Connected" : "Voice Disconnected"),
-                ElevatedButton(
-                  onPressed: _connectToLiveHub,
-                  child: const Text('Join Voice & Social'),
+          // Background UI Widget Layout
+          Positioned.fill(
+            child: Container(
+              decoration: const BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.black, Color(0xFF121212)],
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
                 ),
-              ],
+              ),
             ),
+          ),
+          // Active Screen Content
+          SafeArea(
+            child: _screens[_selectedIndex],
+          ),
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _selectedIndex,
+        onTap: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        backgroundColor: const Color(0xFF1A1A1A),
+        selectedItemColor: Colors.deepPurpleAccent,
+        unselectedItemColor: Colors.grey,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.videogame_asset),
+            label: 'Game',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_balance_wallet),
+            label: 'Wallet',
           ),
         ],
       ),
