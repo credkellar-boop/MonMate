@@ -14,26 +14,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          submodules: recursive # Important if you use git submodules for forge dependencies
+          submodules: recursive
 
       - name: Install Foundry
         uses: foundry-rs/foundry-toolchain@v1
         with:
           version: nightly
+
+      - name: Install Forge Dependencies
+        run: forge install foundry-rs/forge-std --no-commit
 
       - name: Build contracts
         run: forge build
 
       - name: Run Forge tests
         run: forge test -v
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly
-
-      # ADD THIS STEP HERE:
-      - name: Install Forge Dependencies
-        run: forge install foundry-rs/forge-std --no-commit
-
-      - name: Build contracts
-        run: forge build
