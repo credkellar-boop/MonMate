@@ -1,9 +1,5 @@
 # MonMate ♟️⚡
 
-[![Dart CI](https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml/badge.svg)](https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml)
-[![Forge Tests](https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml/badge.svg)](https://github.com/credkellar-boop/MonMate/actions/workflows/forge_tests.yml)
-# MonMate ♟️⚡
-
 <p align="left">
   <a href="https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml">
     <img src="https://github.com/credkellar-boop/MonMate/actions/workflows/dart_ci.yml/badge.svg" alt="Dart CI" />
